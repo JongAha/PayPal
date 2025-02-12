@@ -53,10 +53,10 @@
 
 
 
-        <div class="balance-card">
+        <div class="activity-container">
             <h3 style="margin: 0 0 1.5rem 0;">Recent activity</h3>
 
-            <div class="activity-card"
+            <!-- <div class="activity-card"
                 style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
@@ -64,7 +64,7 @@
                         <span style="color: #666; font-size: 14px;">Aug 15. Payment Received</span>
                     </div>
                     <div style="color: green; font-weight: bold; font-size: 16px;">
-                        +US$150.00
+                        +$150.00
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         +$25.00
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -285,6 +285,88 @@
                 localStorage.setItem('currentBalance', currentBalance);
                 this.blur();
             }
+        });
+
+
+
+
+        // Retrieve transaction activity data from localStorage
+        let activities = JSON.parse(localStorage.getItem("activityCardsData"));
+        if (!activities) {
+            // If no data is present, use 3 default dummy activity records.
+            activities = [
+                {
+                    title: "Payment Received",
+                    details: "Payment Received",
+                    amount: "+$150.00",
+                    amountColor: "green"
+                },
+                {
+                    title: "Payment Sent",
+                    details: "Transfer to Bank",
+                    amount: "-$7500.50",
+                    amountColor: "#333"
+                },
+                {
+                    title: "Refund Received",
+                    details: "Payment Received",
+                    amount: "+$25.00",
+                    amountColor: "green"
+                }
+            ];
+            localStorage.setItem("activityCardsData", JSON.stringify(activities));
+        }
+
+        // Locate the container for the activity cards.
+        // It is assumed your HTML contains the container element with class "transaction-item"
+        // where the header "Recent activity" already exists.
+        const container = document.querySelector(".activity-container");
+
+        // Optionally, clear any existing activity cards (if re-rendering is needed)
+        // Here we leave the header intact if it's the first child.
+        while (container.childElementCount > 1) {
+            container.removeChild(container.lastElementChild);
+        }
+
+        // Create and inject each activity card into the container.
+        activities.forEach(activity => {
+            const card = document.createElement("div");
+            card.className = "activity-card";
+            card.style.border = "1px solid #e0e0e0";
+            card.style.borderRadius = "8px";
+            card.style.padding = "15px";
+            card.style.marginBottom = "10px";
+
+            const innerDiv = document.createElement("div");
+            innerDiv.style.display = "flex";
+            innerDiv.style.justifyContent = "space-between";
+            innerDiv.style.alignItems = "center";
+
+            // Left side: title and details
+            const leftDiv = document.createElement("div");
+            const titleSpan = document.createElement("span");
+            titleSpan.style.fontWeight = "bold";
+            titleSpan.textContent = activity.title;
+            leftDiv.appendChild(titleSpan);
+            leftDiv.appendChild(document.createElement("br"));
+            
+            const detailsSpan = document.createElement("span");
+            detailsSpan.style.color = "#666";
+            detailsSpan.style.fontSize = "14px";
+            detailsSpan.textContent = activity.details;
+            leftDiv.appendChild(detailsSpan);
+
+            // Right side: amount
+            const rightDiv = document.createElement("div");
+            rightDiv.style.fontWeight = "bold";
+            rightDiv.style.fontSize = "16px";
+            rightDiv.style.color = activity.amountColor;
+            rightDiv.textContent = activity.amount;
+
+            innerDiv.appendChild(leftDiv);
+            innerDiv.appendChild(rightDiv);
+            card.appendChild(innerDiv);
+            container.appendChild(card);
         });
     });
 </script>

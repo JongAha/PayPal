@@ -46,6 +46,7 @@ const allEmails = [
     "q3a7v1p5@gmail.com", "z8u2m6x3@outlook.com", "w1t7k4r2@yahoo.com", "l5d8c1u9@hotmail.com",
     "o7m3p2r5@gmail.com", "i4v8a1t7@outlook.com", "s2k9m5u3@yahoo.com", "d7t1r8q4@hotmail.com"
 ];
+
 const dataList = document.getElementById("emailSuggestions");
 
 let currentBalance = localStorage.getItem('currentBalance');
@@ -153,12 +154,26 @@ continueButton.addEventListener('click', async () => {
 
     modalOverlay.classList.add('show'); // Show the modal
 
+    // 记录发送记录
+    const sendRecord = {
+        title: "Payment Sent",
+        details: `Transfer to ${userInput.value}`,
+        amount: `-$${amountInput.value}`,
+        amountColor: "#333"
+    }
+    // 将发送记录添加到localStorage
+    let activities = JSON.parse(localStorage.getItem("activityCardsData")) || [];
+    activities.unshift(sendRecord);
+    localStorage.setItem("activityCardsData", JSON.stringify(activities));
+
     // Reset and close
     loadingIndicator.style.display = 'none';
     rechargeButton.disabled = false;
     rechargeButton.innerText = 'Next';
     amountInput.value = '0.00';
     userInput.value = '';
+
+
 })
 
 function parseCurrency(formattedValue) {
