@@ -46,11 +46,19 @@ body {
     right: -10px;
 }
 
+.smallBar{
+    background-color: #fff;
+    padding: 1.5rem 5rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
 .main-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     padding-top: 2rem;
+    min-height: 80vh;
 }
 
 .setup-card,
@@ -60,6 +68,9 @@ body {
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
+}
+.transaction-item {
+    height: 100%;
 }
 
 .setup-circle {
@@ -268,6 +279,7 @@ body {
     background: white url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>') no-repeat 15px center;
 }
 
+
 .search-input:focus {
     border-color: #0070ba;
 }
@@ -299,8 +311,34 @@ body {
 }
 
 .amount-container {
-    padding: 20px;
+    padding: 0 20px;
+    /* margin-top: 30px; */
+}
+
+.amountInputContainer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
+}
+
+.userinfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 30px 0;
+}
+
+.userinfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.userinfo p {
+    margin-left: 20px;
+    font-size: 26px;
 }
 
 .amount-input {
@@ -309,7 +347,7 @@ body {
     padding: 8px;
     border: 0px solid #e0e0e0;
     border-radius: 4px;
-    width: 400px;
+    width: 200px;
     margin-right: 10px;
 }
 
@@ -326,12 +364,12 @@ body {
 
 .recharge-button {
     display: block;
-    width: 100%;
-    padding: 12px;
+    /* width: 100%; */
+    padding: 15px 25px;
     background-color: #142c8e;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 40px;
     font-size: 16px;
     margin-top: 20px;
     cursor: pointer;
@@ -388,6 +426,7 @@ body {
 }
 
 .modal {
+    display: none;
     background: white;
     padding: 30px;
     border-radius: 8px;
@@ -409,6 +448,21 @@ body {
     }
 }
 
+.sendButton {
+    background-color: #142c8e;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 80px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 30px auto 0;
+    cursor: pointer;
+}
+
 .close-btn {
     position: absolute;
     right: 15px;
@@ -423,7 +477,6 @@ body {
 .success-icon {
     width: 200px;
     height: 200px;
-    background-color: #4CAF50;
     border-radius: 50%;
     margin: 0 auto 20px;
     position: relative;
@@ -459,6 +512,7 @@ body {
 
 .show {
     display: flex;
+    flex-direction: column;
 }
 
 .okstyle {
@@ -471,4 +525,80 @@ body {
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 0 0 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer .footer-content {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer .footer-logo {
+    background-color: #ffffff;
+    box-shadow:0px 0px 10px #0000001a;
+    height: 5rem;
+    margin: 20px 0;
+    display: flex;
+    justify-content: start;
+    padding-left: 15rem;
+    align-items: center;
+}
+
+.footer .footer-logo img {
+    height: 25px;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+}
+
+.copyright p {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.footer .footer-links {
+    margin: 10px 0;
+}
+
+.footer .footer-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+.footer .footer-right {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.footer .footer-right p {
+    margin: 5px 0;
+}
+
+.footer span {
+    color: #000;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .footer .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .footer .footer-right {
+        margin-top: 10px;
+    }
 }

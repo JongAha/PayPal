@@ -1,1 +1,211 @@
-const _0x3cbdfd = _0x2784; (function (_0x5aa64c, _0x357608) { const _0x38bd62 = _0x2784, _0x379778 = _0x5aa64c(); while (!![]) { try { const _0x4c2998 = parseInt(_0x38bd62(0xdd)) / 0x1 * (-parseInt(_0x38bd62(0xd6)) / 0x2) + -parseInt(_0x38bd62(0xc5)) / 0x3 * (-parseInt(_0x38bd62(0xb9)) / 0x4) + -parseInt(_0x38bd62(0xb6)) / 0x5 + -parseInt(_0x38bd62(0xd8)) / 0x6 * (-parseInt(_0x38bd62(0xdb)) / 0x7) + -parseInt(_0x38bd62(0xdc)) / 0x8 * (-parseInt(_0x38bd62(0xd7)) / 0x9) + parseInt(_0x38bd62(0xd1)) / 0xa + -parseInt(_0x38bd62(0xbb)) / 0xb; if (_0x4c2998 === _0x357608) break; else _0x379778['push'](_0x379778['shift']()); } catch (_0x4a54ca) { _0x379778['push'](_0x379778['shift']()); } } }(_0x8af2, 0x55d93)); const totalInput = document[_0x3cbdfd(0xce)](_0x3cbdfd(0xe0)); let currentBalance = totalInput[_0x3cbdfd(0xd9)]; function formatCurrency(_0x299b0e) { const _0x328529 = _0x3cbdfd, _0x4c9a84 = _0x299b0e[_0x328529(0xdf)](/[^\d.]/g, ''), _0xa8e462 = _0x4c9a84[_0x328529(0xe4)]('.'); _0xa8e462[0x0] = _0xa8e462[0x0][_0x328529(0xdf)](/\B(?=(\d{3})+(?!\d))/g, ','); if (_0xa8e462['length'] === 0x1) return _0xa8e462[0x0] + '.00'; else { if (_0xa8e462[0x1][_0x328529(0xd5)] === 0x0) return _0xa8e462[_0x328529(0xc4)]('.') + '00'; else return _0xa8e462[0x1][_0x328529(0xd5)] === 0x1 ? _0xa8e462[0x0] + '.' + _0xa8e462[0x1] + '0' : _0xa8e462[_0x328529(0xc4)]('.'); } } totalInput[_0x3cbdfd(0xc8)](_0x3cbdfd(0xc7), function () { const _0x59246b = _0x3cbdfd; this[_0x59246b(0xd9)] = formatCurrency(this['value']), currentBalance = this[_0x59246b(0xd9)]; }), totalInput[_0x3cbdfd(0xc8)](_0x3cbdfd(0xcc), function (_0x22e0b1) { const _0x1166fc = _0x3cbdfd; _0x22e0b1['key'] === _0x1166fc(0xb8) && (this[_0x1166fc(0xd9)] = formatCurrency(this[_0x1166fc(0xd9)]), this[_0x1166fc(0xc7)]()); }); function _0x2784(_0x2c6705, _0x3ce522) { const _0x8af26 = _0x8af2(); return _0x2784 = function (_0x2784bf, _0x481b7e) { _0x2784bf = _0x2784bf - 0xb6; let _0x4948d9 = _0x8af26[_0x2784bf]; return _0x4948d9; }, _0x2784(_0x2c6705, _0x3ce522); } const amountInput = document[_0x3cbdfd(0xda)](_0x3cbdfd(0xd2)), rechargeButton = document[_0x3cbdfd(0xda)](_0x3cbdfd(0xe2)), loadingIndicator = document['getElementById']('loadingIndicator'); amountInput[_0x3cbdfd(0xc8)](_0x3cbdfd(0xe6), function () { const _0x4fd48 = _0x3cbdfd; this[_0x4fd48(0xd9)] === _0x4fd48(0xc2) && (this['value'] = ''); }), amountInput[_0x3cbdfd(0xc8)](_0x3cbdfd(0xc7), function () { const _0xf0e362 = _0x3cbdfd; this[_0xf0e362(0xd9)] === '' ? this[_0xf0e362(0xd9)] = '0.00' : this[_0xf0e362(0xd9)] = formatCurrency(this[_0xf0e362(0xd9)]); }), amountInput[_0x3cbdfd(0xc8)]('input', function (_0x42ec6a) { const _0x139636 = _0x3cbdfd; let _0x540fe9 = this[_0x139636(0xb7)], _0x1e543c = this['value'][_0x139636(0xdf)](/[^\d.]/g, ''), _0x11be3f = this['value'][_0x139636(0xd5)]; _0x1e543c && (this['value'] = _0x1e543c), _0x540fe9 <= 0x1 && (_0x540fe9 = 0x1), this[_0x139636(0xc3)](_0x540fe9, _0x540fe9); }), rechargeButton[_0x3cbdfd(0xc8)](_0x3cbdfd(0xcd), async function () { const _0x2fb105 = _0x3cbdfd, _0x3efac0 = document[_0x2fb105(0xda)](_0x2fb105(0xba)); if (!_0x3efac0[_0x2fb105(0xd9)]) { alert(_0x2fb105(0xbe)); return; } const _0x39a461 = parseFloat(amountInput[_0x2fb105(0xd9)][_0x2fb105(0xdf)](/[^\d.]/g, '')); currentBalance = parseFloat(currentBalance[_0x2fb105(0xdf)](/[^\d.]/g, '')); if (_0x39a461 > currentBalance) { alert(_0x2fb105(0xc9)); return; } rechargeButton['disabled'] = !![], loadingIndicator[_0x2fb105(0xbd)]['display'] = _0x2fb105(0xd3), await new Promise(_0x292012 => setTimeout(_0x292012, 0x7d0)); const _0x262147 = currentBalance - _0x39a461; totalInput[_0x2fb105(0xd9)] = formatCurrency(_0x262147[_0x2fb105(0xc6)]()), currentBalance = totalInput['value']; const _0x2b30ce = document[_0x2fb105(0xda)](_0x2fb105(0xc0)); _0x2b30ce['innerText'] = 'Process\x2024H:\x20o\x20valor\x20' + amountInput['value'] + _0x2fb105(0xc1) + _0x3efac0[_0x2fb105(0xd9)] + '.', modalOverlay['classList'][_0x2fb105(0xcf)](_0x2fb105(0xcb)), loadingIndicator[_0x2fb105(0xbd)][_0x2fb105(0xbf)] = 'none', rechargeButton[_0x2fb105(0xe1)] = ![], amountInput[_0x2fb105(0xd9)] = _0x2fb105(0xc2), _0x3efac0[_0x2fb105(0xd9)] = ''; }); function _0x8af2() { const _0xd219c7 = ['length', '4794CKmKol', '5337EbomSS', '1527462tSzvXw', 'value', 'getElementById', '7ZUXCSV', '1424pMlFbZ', '79FBECHD', '.close-btn', 'replace', '.editable-amount', 'disabled', 'rechargeButton', 'modalOverlay', 'split', 'keydown', 'focus', 'Escape', '2013470PncJWE', 'selectionStart', 'Enter', '44jOucYa', 'userInput', '3663627cqzxOv', 'contains', 'style', 'Por\x20favor,\x20insira\x20um\x20nome\x20de\x20usuário.', 'display', 'modalText', '$\x20para\x20', '0.00', 'setSelectionRange', 'join', '109296GejjAA', 'toString', 'blur', 'addEventListener', 'Saldo\x20insuficiente', 'classList', 'show', 'keypress', 'click', 'querySelector', 'add', 'remove', '5158660OgwGlh', 'amountInput', 'block', 'key']; _0x8af2 = function () { return _0xd219c7; }; return _0x8af2(); } function parseCurrency(_0x1aba0c) { const _0x222192 = _0x3cbdfd, _0x33e282 = _0x1aba0c[_0x222192(0xdf)](/,/g, ''); return parseFloat(_0x33e282); } const modalOverlay = document[_0x3cbdfd(0xda)](_0x3cbdfd(0xe3)), closeBtn = document[_0x3cbdfd(0xce)](_0x3cbdfd(0xde)), modal = document[_0x3cbdfd(0xce)]('.modal'); closeBtn['addEventListener'](_0x3cbdfd(0xcd), () => { const _0xefb6ea = _0x3cbdfd; modalOverlay['classList'][_0xefb6ea(0xd0)](_0xefb6ea(0xcb)); }), modalOverlay[_0x3cbdfd(0xc8)](_0x3cbdfd(0xcd), _0x280295 => { const _0x3dea92 = _0x3cbdfd; _0x280295['target'] === modalOverlay && modalOverlay[_0x3dea92(0xca)][_0x3dea92(0xd0)](_0x3dea92(0xcb)); }), modal['addEventListener'](_0x3cbdfd(0xcd), _0x36a52a => { _0x36a52a['stopPropagation'](); }), document[_0x3cbdfd(0xc8)](_0x3cbdfd(0xe5), _0x2bf13d => { const _0x4c45f4 = _0x3cbdfd; _0x2bf13d[_0x4c45f4(0xd4)] === _0x4c45f4(0xe7) && modalOverlay[_0x4c45f4(0xca)][_0x4c45f4(0xbc)]('show') && modalOverlay[_0x4c45f4(0xca)][_0x4c45f4(0xd0)](_0x4c45f4(0xcb)); });
+function formatCurrency(value) {
+    // Remove non-numeric and non-period characters.
+    const number = value.replace(/[^\d.]/g, '');
+    const parts = number.split('.');
+
+    // Format integer part with comma separators.
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    // Handle decimal part.
+    if (parts.length === 1) {
+        return parts[0] + '.00';
+    } else if (parts[1].length === 0) {
+        return parts.join('.') + '00';
+    } else if (parts[1].length === 1) {
+        return parts[0] + '.' + parts[1] + '0';
+    } else {
+        return parts.join('.');
+    }
+}
+
+// Full email list containing 100 addresses
+const allEmails = [
+    "r7v9u2z1@gmail.com", "q3c8d5x4@outlook.com", "m4w7s9p2@yahoo.com", "j1k8z3a5@hotmail.com",
+    "d6l2r9e8@gmail.com", "p7o2i4u3@outlook.com", "x5v1q9n7@yahoo.com", "b3m8c2t6@hotmail.com",
+    "f9a4k7r2@gmail.com", "z6e2j3p8@outlook.com", "w8g1u4s9@yahoo.com", "h4b7c6x2@hotmail.com",
+    "u2k9m3q5@gmail.com", "n1p8r7z4@outlook.com", "c5d3v8j6@yahoo.com", "s7q4l1a9@hotmail.com",
+    "o9f3r7t2@gmail.com", "i2m8b5u3@outlook.com", "l6v9z1n4@yahoo.com", "e3p7k2w8@hotmail.com",
+    "t4j1q6c9@gmail.com", "g9d2m5x7@outlook.com", "k7r4b1s8@yahoo.com", "v3u8p2a6@hotmail.com",
+    "a2c9m7l4@gmail.com", "o4j8v9p1@outlook.com", "x7k3r2b5@yahoo.com", "f3z8u1n7@hotmail.com",
+    "r2i6o9q5@gmail.com", "d7p4w8s1@outlook.com", "m9c2t7l3@yahoo.com", "j5r8a2x6@hotmail.com",
+    "z1o7u4q9@gmail.com", "e8k5m2w3@outlook.com", "b6v3t8q7@yahoo.com", "n4r1j5a8@hotmail.com",
+    "s2m9x6p7@gmail.com", "u8c3v1l4@outlook.com", "i9b2t7r6@yahoo.com", "q4w5u1j3@hotmail.com",
+    "l3z7p2d8@gmail.com", "x8m1r9q4@outlook.com", "o7a5t3u2@yahoo.com", "f2v6n1k8@hotmail.com",
+    "r5p9c3a7@gmail.com", "d2j8u6s1@outlook.com", "m7k3t4q9@yahoo.com", "i5b1x8p4@hotmail.com",
+    "z3o7v2r8@gmail.com", "w1c6m4a9@outlook.com", "q8u2r7s3@yahoo.com", "n5p1k8d4@hotmail.com",
+    "j7m3v9t2@gmail.com", "x2a4u6r5@outlook.com", "f7c1p3o8@yahoo.com", "h2k9m4l6@hotmail.com",
+    "s5q8t2u7@gmail.com", "b7d1v3x9@outlook.com", "r9m4p1w8@yahoo.com", "c3a7j5u2@hotmail.com",
+    "v1x8k2q5@gmail.com", "o6s4z9m2@outlook.com", "l7c3r1t8@yahoo.com", "i4v5p7d2@hotmail.com",
+    "n3k8m2w9@gmail.com", "d9u7r5a1@outlook.com", "q1t8v3j5@yahoo.com", "z7c5m2o4@hotmail.com",
+    "w2k9u1r7@gmail.com", "e4t3p8x2@outlook.com", "m6a1v9s4@yahoo.com", "j8c2u7d3@hotmail.com",
+    "o5r1p4k8@gmail.com", "x2m7j3q9@outlook.com", "s9t4b1w7@yahoo.com", "h5a2u8r3@hotmail.com",
+    "v3m6q1d9@gmail.com", "f4k8p2x7@outlook.com", "r1c9t3u5@yahoo.com", "l8v2m4j7@hotmail.com",
+    "q7a3p5r2@gmail.com", "z4k1u8s3@outlook.com", "d2m7q6t1@yahoo.com", "i9c3u5r8@hotmail.com",
+    "o1v6p4k7@gmail.com", "s4t2m8w3@outlook.com", "j7r5k1a9@yahoo.com", "x3m9u2t6@hotmail.com",
+    "f1d4r8q7@gmail.com", "b8v3p2s5@outlook.com", "n4j7c1u6@yahoo.com", "h2m9t4r8@hotmail.com",
+    "q3a7v1p5@gmail.com", "z8u2m6x3@outlook.com", "w1t7k4r2@yahoo.com", "l5d8c1u9@hotmail.com",
+    "o7m3p2r5@gmail.com", "i4v8a1t7@outlook.com", "s2k9m5u3@yahoo.com", "d7t1r8q4@hotmail.com"
+];
+const dataList = document.getElementById("emailSuggestions");
+
+let currentBalance = localStorage.getItem('currentBalance');
+
+
+const userInput = document.getElementById('userInput');
+const amountInput = document.getElementById('amountInput');
+const currentUser = document.getElementById('currentUser');
+const rechargeButton = document.getElementById('rechargeButton');
+const continueButton = document.getElementById('continueButton');
+const loadingIndicator = document.getElementById('loadingIndicator');
+
+// userinput
+userInput.addEventListener("input", function () {
+    const inputValue = this.value.toLowerCase();
+    // Filter emails based on the input value (case-insensitive match)
+    const filtered = allEmails.filter(email => email.toLowerCase().includes(inputValue));
+    // Clear current datalist options
+    dataList.innerHTML = "";
+    // Append only the first 5 filtered suggestions
+    filtered.slice(0, 5).forEach(email => {
+        const option = document.createElement("option");
+        option.value = email;
+        dataList.appendChild(option);
+    });
+});
+// Handle amount input
+amountInput.addEventListener('focus', function () {
+    if (this.value === '0.00') {
+        this.value = '';
+    }
+});
+
+
+amountInput.addEventListener('blur', function () {
+    if (this.value === '') {
+        this.value = '0.00';
+    } else {
+        this.value = formatCurrency(this.value);
+    }
+});
+
+amountInput.addEventListener('input', function (e) {
+    let cursorPos = this.selectionStart;
+    let value = this.value.replace(/[^\d.]/g, '');
+    let originalLength = this.value.length;
+
+    if (value) {
+        this.value = value;
+    }
+
+    if (cursorPos <= 1) {
+        cursorPos = 1;
+    }
+
+    this.setSelectionRange(cursorPos, cursorPos);
+});
+
+rechargeButton.addEventListener('click', async () => {
+
+    if (!userInput.value) {
+        alert('Please enter a username.');
+        return;
+    }
+
+    rechargeButton.disabled = true;
+    rechargeButton.innerText = 'Processing...';
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    userInputContainer = document.getElementById('userInputContainer');
+    amountInputContainer = document.getElementById('amountInputContainer');
+    currentUser.innerText = userInput.value;
+    userInputContainer.style.display = 'none';
+    amountInputContainer.style.display = 'flex';
+
+})
+
+continueButton.addEventListener('click', async () => {
+
+    amountInputContainer.style.display = 'none';
+    loadingIndicator.style.display = 'block';
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    const amount = parseFloat(amountInput.value.replace(/[^\d.]/g, ''));
+    currentBalance = parseFloat(currentBalance.replace(/[^\d.]/g, ''));
+
+    if (amount > currentBalance) {
+        alert('Insufficient balance. Please enter a valid amount.');
+        window.location.href = 'index.html';
+        return;
+    }
+    // Update main balance
+
+    const newBalance = currentBalance - amount;
+
+    currentBalance = formatCurrency(newBalance.toString());
+    localStorage.setItem('currentBalance', currentBalance);
+
+
+    //动态改变modal-text中的内容为userInput和amountInput的值
+    const modalText = document.getElementById('modalText');
+
+    modalText.innerText = `You've just sent $${amountInput.value} to ${userInput.value}.`;
+
+    modalOverlay.classList.add('show'); // Show the modal
+
+    // Reset and close
+    loadingIndicator.style.display = 'none';
+    rechargeButton.disabled = false;
+    rechargeButton.innerText = 'Next';
+    amountInput.value = '0.00';
+    userInput.value = '';
+})
+
+function parseCurrency(formattedValue) {
+    // 移除所有逗号并转换为浮点数
+    const rawValue = formattedValue.replace(/,/g, '');
+    return parseFloat(rawValue);
+}
+
+
+const modalOverlay = document.getElementById('modalOverlay');
+// const closeBtn = document.querySelector('.close-btn');
+const modal = document.querySelector('.modal');
+const sendButton = document.getElementById('sendButton');
+const goToButton = document.getElementById('goToButton');
+
+sendButton.addEventListener('click', () => {
+    modalOverlay.classList.remove('show');
+    userInputContainer = document.getElementById('userInputContainer');
+    userInputContainer.style.display = 'block';
+});
+
+goToButton.addEventListener('click', () => {
+    window.location.href = 'index.html';
+})
+// Close modal when clicking the close button
+// closeBtn.addEventListener('click', () => {
+//     modalOverlay.classList.remove('show');
+    
+// });
+
+// Close modal when clicking outside
+modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('show');
+    }
+});
+
+// Prevent modal close when clicking inside modal
+modal.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+        modalOverlay.classList.remove('show');
+    }
+});
+
+
