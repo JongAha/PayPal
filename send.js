@@ -150,7 +150,7 @@ continueButton.addEventListener('click', async () => {
     //动态改变modal-text中的内容为userInput和amountInput的值
     const modalText = document.getElementById('modalText');
 
-    modalText.innerText = `You've just sent $${amountInput.value} to ${userInput.value}.`;
+    modalText.innerText = `You've just sent €${amountInput.value} to ${userInput.value}.`;
 
     modalOverlay.classList.add('show'); // Show the modal
 
@@ -158,7 +158,7 @@ continueButton.addEventListener('click', async () => {
     const sendRecord = {
         title: "Payment Sent",
         details: `Transfer to ${userInput.value}`,
-        amount: `-$${amountInput.value}`,
+        amount: `-€${amountInput.value}`,
         amountColor: "#333"
     }
     // 将发送记录添加到localStorage
